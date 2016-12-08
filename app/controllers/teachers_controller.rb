@@ -10,10 +10,14 @@ class TeachersController < ApplicationController
 
   def edit
     @teacher = Teacher.find(params[:id])
+    unless @teacher == current_teacher
+      redirect_to teachers_new_path
+    end
   end
 
   def create
     @teacher = Teacher.new(teacher_params)
+    @teacher.id = current_teacher
 
     if @teacher.save
       redirect_to @teacher
