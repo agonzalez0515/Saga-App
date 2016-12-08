@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @teacher = Teacher.find_by_email(params[:email])
 
     if @teacher && @teacher.authenticate(params[:password])
-      session[:teacher_id] = @teacher.id
+      login(@teacher)
       redirect_to school_teachers_url(@teacher.school, @teacher)
     else
       flash[:alert] = "Username or Password Incorrect!"
