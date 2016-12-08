@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'root#index'
+  root to: 'welcome#index'
 
   resources :schools, only: [:show] do
     resources :teachers, except: [:new, :create]
