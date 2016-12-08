@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def login(teacher)
     session[:teacher_id] = teacher.id
   end
+
+  def is_admin?
+    current_teacher.admin
+  end
 end
