@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   root to: 'root#index'
 
   resources :schools, only: [:show] do
-    resources :teachers
+    resources :teachers, except: [:new, :create]
     resources :students do
       patch  "/teams", to: 'student#update_team'
       delete "/teams", to: 'student#destroy_team'
     end
   end
+
+  get "/teachers/new", to: 'teachers#new'
+  post "/teachers", to: 'teachers#create', as: nil
 
   get "/login", to: 'sessions#new'
   post "/login", to: 'sessions#create'
