@@ -1,16 +1,14 @@
+
 h1 
   = @school.name
 ul
   li 
-    =@school.address
-    | , 
-    =@school.city
+    ="#{@school.address}"
   li
-    =@school.state
-    | , 
-    =@school.zipcode
+    = "#{@school.city}, #{@school.state}, #{@school.zipcode}"
     
 
-= link_to "Teachers", school_teachers_path
-= link_to "Students", school_students_path
+= link_to "Teachers", school_teachers_path(@school)
+br
+= link_to "Students", school_students_path(@school)
   
