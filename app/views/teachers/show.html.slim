@@ -1,0 +1,9 @@
+h3 = @teacher.name
+= link_to @teacher.school.name, school_path(@teacher.school)
+
+h4 Team Names
+ul
+  - @teacher.teams.each do |team|
+     li
+      =link_to team.name, school_team_path(team.school, team)
+      
