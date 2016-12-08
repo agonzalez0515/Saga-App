@@ -1,0 +1,8 @@
+h1 = @school.name
+ul
+  li = @school.address, @school.city
+  li = @school.state, @school.zipcode
+
+= link_to "Teachers", school_teachers_path
+br
+= link_to "students", school_students_pat
