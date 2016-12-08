@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'slim'
 gem 'friendly_id'
+gem 'faker'
 # HOW DO WE GET THIS WORKING???
 # gem 'pry'
 
