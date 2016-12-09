@@ -1,6 +1,8 @@
 h3 = @team.name
 
+=button_to 'edit team name', edit_school_team_path(@team.school,@team), method: :get
 h4 Students on this team:
+
 table
   tr
     th Name
@@ -16,4 +18,3 @@ table
       td =student.gender
       td =student.GPA
       td =student.detentions
-

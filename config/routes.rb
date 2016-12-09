@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
     resources :teachers, except: [:new, :create]
     resources :students do
-      patch  "/teams", to: 'student#update_team', as: nil
-      delete "/teams", to: 'student#destroy_team', as: nil
+      patch  "/teams", to: 'student#update_team'
+      delete "/teams", to: 'student#destroy_team'
     end
   end
 

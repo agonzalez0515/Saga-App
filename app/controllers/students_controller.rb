@@ -24,6 +24,7 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @teams = current_teacher.teams
     # unless is_admin?
     #  #throw error something like "Must be admin to edit!"
     # end
@@ -37,7 +38,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
 
     if @student.update(student_params)
-      redirect_to @student
+      redirect_to school_student_path
     else
       render 'edit'
     end
@@ -55,7 +56,7 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:name, :grade, :GPA, :detentions, :gender, :fav_animal, :shirt_size, :allergies, :emergency_contact)
+      params.require(:student).permit(:name, :grade, :GPA, :detentions, :gender, :fav_animal, :shirt_size, :allergies, :emergency_contact, :team_id)
     end
 
 end
