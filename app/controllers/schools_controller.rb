@@ -6,6 +6,12 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
   def check_school_match
     unless current_teacher.school_id == params[:id].to_i
