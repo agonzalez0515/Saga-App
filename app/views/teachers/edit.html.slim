@@ -1,0 +1,10 @@
+.edit-teacher
+  h1 Edit Profile
+  = form_for :teacher, url: {action: "update"}, method: "patch" do |f|
+    = f.label "Name: "
+    = f.text_field :name, placeholder: "Name"
+    = f.label "Email: "
+    = f.email_field :email, placeholder: "Email"
+    = f.label "Password: "
+    = f.password_field :password, placeholder: "Password"
+    = submit_tag "Update"
