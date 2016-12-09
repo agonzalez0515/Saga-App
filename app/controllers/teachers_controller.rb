@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   before_action :require_login, except: ['new', 'create']
-  before_action :check_school_match
+  before_action :check_school_match, except: ['new', 'create']
 
   def index
     @school = School.find(params[:school_id])
