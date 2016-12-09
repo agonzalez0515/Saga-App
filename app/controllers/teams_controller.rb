@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
 
   def new
+    @school = School.find(params[:school_id])
     @team = Team.new
   end
 
@@ -10,9 +11,11 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
+    @team.school_id = params[:school_id]
+    @team.teacher = current_teacher
 
     if @team.save
-      redirect_to @team
+      redirect_to school_team_path(@team.school, @team)
     else
       render 'new'
     end
@@ -41,6 +44,6 @@ class TeamsController < ApplicationController
 
   private
     def team_params
-      params.requrire(:team)
+      params.require(:team).permit(:name)
     end
 end

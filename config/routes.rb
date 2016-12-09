@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   resources :schools, only: [:show] do
-    resources :teams, except: [:index, :create]
-    post "/teams", to: 'teams#create', as: nil
+    resources :teams, except: [:index]
+    # post "/teams", to: 'teams#create', as: nil
 
     resources :teachers, except: [:new, :create]
     resources :students do
