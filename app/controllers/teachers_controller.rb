@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: ['new', 'create']
   before_action :check_school_match
 
   def index
