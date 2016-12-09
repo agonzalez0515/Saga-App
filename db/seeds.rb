@@ -8,7 +8,7 @@
     })
 end
 
-10.times do
+15.times do
   Teacher.create({ name: Faker::Beer.name,
                     email: Faker::Internet.email,
                password: 'password',
@@ -17,7 +17,7 @@ end
     })
 end
 
-20.times do
+30.times do
   Team.create({  name: Faker::GameOfThrones.character,
            teacher: Teacher.all.sample,
             school: School.all.sample
@@ -28,18 +28,19 @@ gender = %w[female male non-binary fluid]
 animal = %w[unicorn wolf elephant tiger eagle capybara racoon dragon mouse butterfly]
 shirts = %w[small, medium, large]
 
-50.times do
+200.times do
+  our_school = School.all.sample
     Student.create({
-                         team: Team.all.sample,
-                     school: School.all.sample,
-                                name: Faker::Name.name,
-                             grade: rand(1..12),
-                            gender: gender.sample,
-                               GPA: (rand * (4) + 1).round(1),
-                    detentions: rand(0..5),
-                    fav_animal: animal.sample,
-                    shirt_size: shirts.sample,
-                     allergies: 'none',
-     emergency_contact: 'Mom'
+                    school: our_school,
+                      team: our_school.teams.sample,
+                      name: Faker::Name.name,
+                     grade: rand(1..12),
+                    gender: gender.sample,
+                       GPA: (rand * (4) + 1).round(1),
+                detentions: rand(0..5),
+                fav_animal: animal.sample,
+                shirt_size: shirts.sample,
+                 allergies: 'none',
+         emergency_contact: 'Mom'
         })
 end
