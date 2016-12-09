@@ -13,6 +13,7 @@
       .field = f.text_field :teacher_code, placeholder: "Teacher Code"
       = f.label "School: "
       = f.select :school_id, @schools.collect { |t| [t.name, t.id]}, :include_blank => true
+      br
       .field
         input.ui.button.large.fluid.blue[type="submit" value="Register"]
 
