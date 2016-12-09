@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <div class="header nav">
+      <%= render 'layouts/nav_bar' %>
+    </div>
+
+    <div class="flash">
+      <%= render 'layouts/flash_display' %> 
+    </div>
+
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,8 @@
+ul
+  - if @current_teacher
+    /show logout
+    li = button_to "Logout", logout_path, {method: :delete}
+  - else
+    /show register and login
+    li = button_to "Register", teachers_new_path, {method: :get}
+    li = button_to "Login", login_path, {method: :get}
