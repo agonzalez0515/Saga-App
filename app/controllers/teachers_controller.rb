@@ -22,6 +22,11 @@ class TeachersController < ApplicationController
     teacher_input = teacher_params
     @teacher = Teacher.new(teacher_input)
 
+    unless @teacher.valid?
+      flash[:alert] = @teacher.errors.full_messages
+      render 'new'
+    end
+
     if teacher_input["teacher_code"] == @teacher.school.admin_code
       @teacher.admin = true
     elsif teacher_input["teacher_code"] == @teacher.school.teacher_code
@@ -31,12 +36,9 @@ class TeachersController < ApplicationController
       render 'new'
     end
 
-    if @teacher.save
-      login(@teacher)
-      redirect_to school_teacher_path(@teacher.school, @teacher)
-    else
-      render 'new'
-    end
+    @teacher.save
+    login(@teacher)
+    redirect_to school_teacher_path(@teacher.school, @teacher)
   end
 
   def show

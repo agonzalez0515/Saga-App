@@ -5,6 +5,7 @@ class Teacher < ApplicationRecord
 
   has_secure_password
 
+  validates :name, :school, :email, presence: true
   validates :email, uniqueness: true
   validates :name, uniqueness: true
 end
