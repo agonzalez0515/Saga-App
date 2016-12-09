@@ -1,6 +1,7 @@
 h3 = @teacher.name
 = link_to @teacher.school.name, school_path(@teacher.school)
-
+- if current_teacher.id == @teacher.id
+  =button_to 'edit your profile', edit_school_teacher_path(@teacher.school,@teacher), method: :get
 h4 Team Names
 ul
   - @teacher.teams.each do |team|

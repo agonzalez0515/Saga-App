@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     if @team.update(team_params)
-      redirect_to @team
+      redirect_to school_team_path(@team.school,@team)
     else
       render 'edit'
     end

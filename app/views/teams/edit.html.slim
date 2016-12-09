@@ -1,0 +1,6 @@
+.edit-team
+  h1 Edit Team Name
+  = form_for :team, url: {action: "update"}, method: "patch" do |f|
+    = f.label "Name: "
+    = f.text_field :name, placeholder: "Name"
+    = submit_tag "Update"

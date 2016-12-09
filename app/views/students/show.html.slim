@@ -4,8 +4,8 @@ h3
 - if @student.team   
   h4
     = "Team: #{@student.team.name}"
-- else
-  h4 Add Button For Teams
+-else
+  p No Team
 ul
   li = "Gender: #{@student.gender}"
   li = "GPA: #{@student.GPA}"
@@ -14,3 +14,8 @@ ul
   li = "Shirt Size: #{@student.shirt_size}"
   li = "Allergies: #{@student.allergies}"
   li = "Emergency Contact: #{@student.emergency_contact}"
+
+=button_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
+
+
+/add button just for Adding Student or/and admin only editing
