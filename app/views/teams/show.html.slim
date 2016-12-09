@@ -1,0 +1,19 @@
+h3 = @team.name
+
+h4 Students on this team:
+table
+  tr
+    th Name
+    th Grade
+    th Gender
+    th GPA
+    th Detentions
+
+  - @team.students.each do |student|
+    tr
+      td =link_to student.name, school_student_path(student.school, student)
+      td =student.grade
+      td =student.gender
+      td =student.GPA
+      td =student.detentions
+
