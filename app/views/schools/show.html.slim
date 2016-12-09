@@ -1,11 +1,18 @@
 
 h1 
   = @school.name
+=button_to 'Edit Code', edit_school_path(@school), method: :get
 ul
   li 
     ="#{@school.address}"
   li
     = "#{@school.city}, #{@school.state}, #{@school.zipcode}"
+  li 
+    = "Teacher Code: #{@school.teacher_code}"
+  li 
+    = "Admin Code: #{@school.admin_code}"
+    
+  
     
 
 = link_to "Teachers", school_teachers_path(@school)
