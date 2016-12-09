@@ -18,12 +18,13 @@ class TeachersController < ApplicationController
 
   def create
     @teacher = Teacher.new(teacher_params)
-    @teacher.id = current_teacher
 
     if @teacher.save
-      redirect_to @teacher
+      login(@teacher)
+      redirect_to school_teacher_path(@teacher.school, @teacher)
     else
       render 'new'
+      p @teacher.errors.full_messages
     end
   end
 
@@ -41,7 +42,7 @@ class TeachersController < ApplicationController
     end
   end
 
-  def destrory
+  def destroy
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
 

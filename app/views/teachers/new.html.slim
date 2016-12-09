@@ -1,0 +1,20 @@
+.register
+  h1 Please Register
+  = form_for @teacher, url: {action: "create"} do |f|
+    .name-tag
+      = f.label "Name: "
+      = f.text_field :name, placeholder: "Name"
+    .email-tag
+      = f.label "Email: "
+      = f.email_field :email, placeholder: "Email"
+    .password-tag
+      = f.label "Password: "
+      = f.password_field :password, placeholder: "Password"
+    .admin-tag
+      = f.label "Admin Code: "
+      = f.password_field :admin_code, placeholder: "Admin Code"
+    .school-tag
+      = f.label "School: "
+      = f.text_field :school, placeholder: "School"
+    .submit_tag
+      = submit_tag "Register"
