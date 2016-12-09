@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
 
     if @teacher && @teacher.authenticate(params[:password])
       login(@teacher)
-      redirect_to school_teachers_url(@teacher.school, @teacher)
+      redirect_to school_teachers_path(@teacher.school, @teacher)
     else
       flash[:alert] = "Username or Password Incorrect!"
-      redirect_to login_url
+      redirect_to login_path
     end
   end
 
   def destroy
     session[:teacher_id] = nil
-    redirect_to root_url
+    redirect_to root_path
   end
 end
