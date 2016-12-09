@@ -22,4 +22,10 @@ class ApplicationController < ActionController::Base
   def require_login
     redirect_to login_path unless session[:teacher_id]
   end
+
+  def check_school_match
+    unless current_teacher.school.id == params[:school_id].to_i
+      redirect_to school_path(current_teacher.school)
+    end
+  end
 end

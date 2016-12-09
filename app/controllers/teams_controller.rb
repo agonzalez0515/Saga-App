@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :require_login
+  before_action :check_school_match
 
   def new
     @school = School.find(params[:school_id])
