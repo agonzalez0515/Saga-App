@@ -10,17 +10,18 @@ end
 
 15.times do
   Teacher.create({ name: Faker::Beer.name,
-                    email: Faker::Internet.email,
+                  email: Faker::Internet.email,
                password: 'password',
-                        admin: false,
-                        school: School.all.sample
+                  admin: false,
+                 school: School.all.sample
     })
 end
 
 30.times do
+  our_school = School.all.sample
   Team.create({  name: Faker::GameOfThrones.character,
-           teacher: Teacher.all.sample,
-            school: School.all.sample
+               school: our_school,
+              teacher: our_school.teachers.sample
     })
 end
 

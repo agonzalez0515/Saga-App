@@ -1,10 +1,9 @@
-.login
-  = form_tag login_url do
-    .email-tag
-      = label_tag "Email: "
-      = email_field_tag 'session[email]', nil, placeholder: "Email"
-    .password-tag
-      = label_tag "Password: "
-      = password_field_tag 'session[password]', nil, placeholder: "Password"
-    .submit_tag
-      = submit_tag "Login"
+.ui.one.column.center.aligned.grid
+  .column.six.wide.form-holder
+    h2.center.aligned.header.form-head
+      | Sign in
+    .ui.form = form_tag login_url do
+      .field = email_field_tag 'session[email]', nil, placeholder: "Email"
+      .field = password_field_tag 'session[password]', nil, placeholder: "Password"
+      .field
+        input.ui.button.large.fluid.blue[type="submit" value="sign in"]
