@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :current_teacher
+  before_action :current_teacher # this is required for header
 
   private
   def current_teacher
@@ -17,5 +17,9 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     current_teacher.admin
+  end
+
+  def require_login
+    redirect_to login_path unless session[:teacher_id]
   end
 end

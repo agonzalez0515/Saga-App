@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+  before_action :require_login
 
   def index
     @school = School.find(params[:school_id])
