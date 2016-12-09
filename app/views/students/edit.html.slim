@@ -1,0 +1,34 @@
+.edit-student
+  h1 Edit Student
+  = form_for :student, url: {action: "update"}, method: "patch" do |f|
+    .name-tag
+      = f.label "Name: "
+      = f.text_field :name, placeholder: "Name"
+    .grade-tag
+      = f.label "Grade: "
+      = f.text_field :grade, placeholder: "Grade"
+    .gender-tag
+      = f.label "Gender: "
+      = f.text_field :gender, placeholder: "Gender"
+    .gpa-tag
+      = f.label "GPA: "
+      = f.text_field :GPA, placeholder: "GPA"
+    .detentions-tag
+      = f.label "Detentions: "
+      = f.text_field :detentions, placeholder: "Detentions"
+    .fav-tag
+      = f.label "Favorite Animal: "
+      = f.text_field :fav_animal, placeholder: "Favorite Animal: "
+    .shirt-tag
+      = f.label "Shirt Size: "
+      = f.text_field :shirt_size, placeholder: "Shirt Size"
+    .allergies-tag
+      = f.label "Allergies: "
+      = f.text_field :allergies, placeholder: "Allergies"
+    .emergency-tag
+      = f.label "Emergency Contact: "
+      = f.text_field :emergency_contact, placeholder: "Emergency Contact"
+    .teams-tag
+      = f.select :team_id, @teams.collect { |t| [t.name, t.id]}
+    .submit-tag
+      = submit_tag "Update"

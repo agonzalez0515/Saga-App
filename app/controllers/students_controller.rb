@@ -22,6 +22,9 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @teams = current_teacher.teams
+    p "*******"
+    p @teams
     # unless is_admin?
     #  #throw error something like "Must be admin to edit!"
     # end
@@ -35,7 +38,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
 
     if @student.update(student_params)
-      redirect_to @student
+      redirect_to school_student_path
     else
       render 'edit'
     end
