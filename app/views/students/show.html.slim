@@ -1,0 +1,16 @@
+h3 
+  = "#{@student.name} Student Profile Page"
+
+- if @student.team   
+  h4
+    = "Team: #{@student.team.name}"
+- else
+  h4 Add Button For Teams
+ul
+  li = "Gender: #{@student.gender}"
+  li = "GPA: #{@student.GPA}"
+  li = "Detentions: #{@student.detentions}"
+  li = "Favorite Animal: #{@student.fav_animal}"
+  li = "Shirt Size: #{@student.shirt_size}"
+  li = "Allergies: #{@student.allergies}"
+  li = "Emergency Contact: #{@student.emergency_contact}"
