@@ -29,7 +29,6 @@
       = f.label "Emergency Contact: "
       = f.text_field :emergency_contact, placeholder: "Emergency Contact"
     .teams-tag
-    /add logic for current_teacher or admin to view 
       = f.label "Team Name: "
       = f.select :team_id, @teams.collect { |t| [t.name, t.id]}, :include_blank => true 
     .submit-tag

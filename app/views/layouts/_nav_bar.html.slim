@@ -1,0 +1,10 @@
+ul
+  li = button_to "Home", root_path, {method: :get}
+  - if @current_teacher
+    /show logout and school
+    li = button_to @current_teacher.school.name, school_path(@current_teacher.school), {method: :get}
+    li = button_to "Logout", logout_path, {method: :delete}
+  - else
+    /show register and login
+    li = button_to "Register", teachers_new_path, {method: :get}
+    li = button_to "Login", login_path, {method: :get}
