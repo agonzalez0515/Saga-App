@@ -19,14 +19,23 @@ class TeachersController < ApplicationController
   end
 
   def create
-    @teacher = Teacher.new(teacher_params)
+    teacher_input = teacher_params
+    @teacher = Teacher.new(teacher_input)
+
+    if teacher_input["teacher_code"] == @teacher.school.admin_code
+      @teacher.admin = true
+    elsif teacher_input["teacher_code"] == @teacher.school.teacher_code
+      @teacher.admin = false
+    else
+      flash[:alert] = "Code invalid"
+      render 'new'
+    end
 
     if @teacher.save
       login(@teacher)
       redirect_to school_teacher_path(@teacher.school, @teacher)
     else
       render 'new'
-      p @teacher.errors.full_messages
     end
   end
 
@@ -53,6 +62,7 @@ class TeachersController < ApplicationController
 
   private
     def teacher_params
-      params.require(:teacher).permit(:name, :email, :password)
+      params.require(:teacher).permit(:name, :email, :password, :school,
+        :teacher_code)
     end
 end
