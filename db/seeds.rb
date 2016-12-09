@@ -1,10 +1,13 @@
 5.times do
+  school_name = Faker::University.name
   School.create({
-    name: Faker::University.name,
+    name: school_name,
     address: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state,
-    zipcode: Faker::Address.zip
+    zipcode: Faker::Address.zip,
+    admin_code: "#{school_name}+a",
+    teacher_code: "#{school_name}+t"
     })
 end
 
