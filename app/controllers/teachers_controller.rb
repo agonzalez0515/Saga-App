@@ -9,6 +9,7 @@ class TeachersController < ApplicationController
 
   def new
     @teacher = Teacher.new
+    @schools = School.all
   end
 
   def edit

@@ -15,6 +15,7 @@
       = f.password_field :admin_code, placeholder: "Admin Code"
     .school-tag
       = f.label "School: "
-      = f.text_field :school, placeholder: "School"
+      = f.select :school_id, @schools.collect { |t| [t.name, t.id]}, :include_blank => true
     .submit-tag
       = submit_tag "Register"
+
