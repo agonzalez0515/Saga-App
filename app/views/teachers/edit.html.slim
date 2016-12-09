@@ -1,10 +1,13 @@
-.edit-teacher
-  h1 Edit Profile
-  = form_for :teacher, url: {action: "update"}, method: "patch" do |f|
-    = f.label "Name: "
-    = f.text_field :name, placeholder: "Name"
-    = f.label "Email: "
-    = f.email_field :email, placeholder: "Email"
-    = f.label "Password: "
-    = f.password_field :password, placeholder: "Password"
-    = submit_tag "Update"
+.ui.one.column.center.aligned.grid
+  .column.six.wide.form-holder
+    h2.center.aligned.header.form-head
+      | Edit Profile
+    .ui.form = form_for :teacher, url: {action: "update"}, method: "patch" do |f|
+      = f.label "Name: "
+      .field = f.text_field :name, placeholder: "Name"
+      = f.label "Email: "
+      .field = f.email_field :email, placeholder: "Email"
+      = f.label "Password: "
+      .field = f.password_field :password, placeholder: "Password"
+      .field
+        input.ui.button.large.fluid.blue[type="submit" value="Update Profile"]
