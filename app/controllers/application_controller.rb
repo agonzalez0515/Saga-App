@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :current_teacher # this is required for header
+  helper_method :current_teacher
 
   private
   def current_teacher
