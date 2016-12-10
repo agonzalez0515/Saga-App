@@ -11,16 +11,11 @@ table.ui.very.basic.collapsing.celled.table
   tbody
     - @team.students.each do |student|
       tr
-        td =link_to student.name, school_student_path(student.school, student)
+        td
+          h4.ui.image.header
+            img.ui.mini.rounded.image[src="http://i.imgur.com/zoogc5d.png"]
+          .content =link_to student.name, school_student_path(student.school, student)
         td =student.grade
         td =student.gender
         td =student.GPA
         td =student.detentions
-    tr
-      td
-        h4.ui.image.header
-          img.ui.mini.rounded.image[src="/images/avatar2/small/mark.png"]
-        .content
-          |  Mark
-      td
-        |  11
