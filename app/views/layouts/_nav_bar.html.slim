@@ -1,0 +1,12 @@
+br
+- if @current_teacher
+  .ui.four.item.menu
+    .item = link_to "Profile", school_teacher_path(@current_teacher.school, @current_teacher)
+    .item = link_to @current_teacher.school.name, school_path(@current_teacher.school)
+    .item = link_to "Students", school_students_path(@current_teacher.school)
+    .item = link_to "Logout", logout_path, {method: :delete}
+- else
+  .ui.three.item.menu
+    .item = link_to "Home", root_path
+    .item = link_to "Register", teachers_new_path
+    .item = link_to "Login", login_path

@@ -1,0 +1,19 @@
+.ui.one.column.center.aligned.grid
+  .column.six.wide.form-holder
+    h2.center.aligned.header.form-head
+      | Please Register
+    .ui.form = form_for @teacher, url: {action: "create"} do |f|
+      = f.label "Name: "
+      .field = f.text_field :name, placeholder: "Name"
+      = f.label "Email: "
+      .field = f.text_field :email, placeholder: "Email"
+      = f.label "Password: "
+      .field = f.password_field :password, placeholder: "Password"
+      = f.label "Teacher Code: "
+      .field = f.text_field :teacher_code, placeholder: "Teacher Code"
+      = f.label "School: "
+      = f.select :school_id, @schools.collect { |t| [t.name, t.id]}, :include_blank => true
+      br
+      .field
+        input.ui.button.large.fluid.blue[type="submit" value="Register"]
+

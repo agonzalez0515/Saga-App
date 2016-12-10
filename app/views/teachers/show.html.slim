@@ -1,0 +1,23 @@
+br
+br
+.ui.grid
+  .eight.wide.column
+    h3 = @teacher.name
+
+    h4.ui.image
+      img.ui.image[src="https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/1933754_507338554325_5941_n.jpg?oh=b0d9b3cd838808e2ea9b6fc91bb8fdc3&oe=58EEB976"]
+    br
+
+    h3 School:
+    = link_to @teacher.school.name, school_path(@teacher.school)
+    br
+    - if current_teacher.id == @teacher.id
+      .ui.primary.basic.button =link_to 'edit your profile', edit_school_teacher_path(@teacher.school,@teacher), method: :get
+  .eight.wide.column
+    h4 Team Names
+    ul
+      - @teacher.teams.each do |team|
+         li
+          =link_to team.name, school_team_path(team.school, team)
+
+
