@@ -1,21 +1,20 @@
+.ui.container.center.aligned
+  .container.school.center.aligned
+    h1 = @school.name
+    =button_to 'Edit Code', edit_school_path(@school), method: :get
+    .school
+      br
+      p 
+        ="#{@school.address}"
+      p
+        = "#{@school.city}, #{@school.state}, #{@school.zipcode}"
+      p 
+        = "Teacher Code: #{@school.teacher_code}"
+      p 
+        = "Admin Code: #{@school.admin_code}"
+      br
 
-h1 
-  = @school.name
-=button_to 'Edit Code', edit_school_path(@school), method: :get
-ul
-  li 
-    ="#{@school.address}"
-  li
-    = "#{@school.city}, #{@school.state}, #{@school.zipcode}"
-  li 
-    = "Teacher Code: #{@school.teacher_code}"
-  li 
-    = "Admin Code: #{@school.admin_code}"
+    = link_to "Teachers", school_teachers_path(@school)
+    br
+    = link_to "Students", school_students_path(@school)
     
-  
-    
-
-= link_to "Teachers", school_teachers_path(@school)
-br
-= link_to "Students", school_students_path(@school)
-  
