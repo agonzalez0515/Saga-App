@@ -1,9 +1,7 @@
-h3 
-  = "#{@student.name} Student Profile Page"
+h3 = "#{@student.name} Student Profile Page"
 
-- if @student.team   
-  h4
-    = "Team: #{@student.team.name}"
+- if @student.team
+  h4 = "Team: #{@student.team.name}"
 -else
   p No Team
 ul
@@ -15,7 +13,5 @@ ul
   li = "Allergies: #{@student.allergies}"
   li = "Emergency Contact: #{@student.emergency_contact}"
 
-=button_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
+.ui.primary.basic.button =link_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
 
-
-/add button just for Adding Student or/and admin only editing

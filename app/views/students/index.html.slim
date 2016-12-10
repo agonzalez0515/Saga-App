@@ -1,20 +1,13 @@
-h3
-  = "#{@school.name} Student Page"
-        
-table
-  tr
-    th Name
-    th Team
-    
-  - @students.each do |student|
+table.ui.very.basic.collapsing.celled.table
+  thead
     tr
-      td =link_to student.name, school_student_path(student.school, student)
-      - if student.team
-        td =link_to student.team.name, school_team_path(student.school, student.team)
-      - else 
-        td =link_to "Add to team", edit_school_student_path(student.school, student) 
-      
-        
-
-       
-    
+      th Name
+      th Team
+  tbody
+    - @students.each do |student|
+      tr
+        td =link_to student.name, school_student_path(student.school, student)
+        - if student.team
+          td =link_to student.team.name, school_team_path(student.school, student.team)
+        - else
+          td =link_to "Add to team", edit_school_student_path(student.school, student)
