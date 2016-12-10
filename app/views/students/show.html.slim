@@ -13,5 +13,5 @@ ul
   li = "Allergies: #{@student.allergies}"
   li = "Emergency Contact: #{@student.emergency_contact}"
 
-=button_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
+.ui.primary.basic.button =link_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
 
