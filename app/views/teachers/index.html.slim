@@ -1,0 +1,6 @@
+h3 
+  = "#{@school.name} Teacher Page"
+        
+ul 
+  - @teachers.each do |teacher|
+    li = link_to teacher.name, school_teacher_path(teacher.school, teacher)

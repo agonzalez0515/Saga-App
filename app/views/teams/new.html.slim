@@ -1,0 +1,9 @@
+.ui.one.column.center.aligned.grid
+  .column.six.wide.form-holder
+    h2.center.aligned.header.form-head
+      | Create a New Team!
+    .ui.form = form_for [@school, @team] do |f|
+      = f.label "Name: "
+      .field = f.text_field :name, placeholder: "Name"
+      .field
+        input.ui.button.large.fluid.blue[type="submit" value="Create Team"]

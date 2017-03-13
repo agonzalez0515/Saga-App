@@ -1,0 +1,8 @@
+.edit_school
+  h1 Edit School 
+  = form_for :school, url: {action: "update"}, method: "patch" do |f|
+    = f.label "Teacher Code: "
+    = f.text_field :teacher_code, placeholder: "Teacher Code"
+    = f.label "Admin Code: "
+    = f.text_field :admin_code, placeholder: "Admin Code"
+    = submit_tag "Update"

@@ -1,0 +1,17 @@
+h3 = "#{@student.name} Student Profile Page"
+
+- if @student.team
+  h4 = "Team: #{@student.team.name}"
+-else
+  p No Team
+ul
+  li = "Gender: #{@student.gender}"
+  li = "GPA: #{@student.GPA}"
+  li = "Detentions: #{@student.detentions}"
+  li = "Favorite Animal: #{@student.fav_animal}"
+  li = "Shirt Size: #{@student.shirt_size}"
+  li = "Allergies: #{@student.allergies}"
+  li = "Emergency Contact: #{@student.emergency_contact}"
+
+.ui.primary.basic.button =link_to 'edit student', edit_school_student_path(@student.school,@student), method: :get
+

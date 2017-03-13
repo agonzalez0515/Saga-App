@@ -1,0 +1,28 @@
+.ui.one.column.center.aligned.grid
+  .column.six.wide.form-holder
+    h2.center.aligned.header.form-head
+      | Edit Student
+    .ui.form = form_for :student, url: {action: "update"}, method: "patch" do |f|
+      = f.label "Name: "
+      .field = f.text_field :name, placeholder: "Name"
+      = f.label "Grade: "
+      .field = f.text_field :grade, placeholder: "Grade"
+      = f.label "Gender: "
+      .field = f.text_field :gender, placeholder: "Gender"
+      = f.label "GPA: "
+      .field = f.text_field :GPA, placeholder: "GPA"
+      = f.label "Detentions: "
+      .field = f.text_field :detentions, placeholder: "Detentions"
+      = f.label "Favorite Animal: "
+      .field = f.text_field :fav_animal, placeholder: "Favorite Animal: "
+      = f.label "Shirt Size: "
+      .field = f.text_field :shirt_size, placeholder: "Shirt Size"
+      = f.label "Allergies: "
+      .field = f.text_field :allergies, placeholder: "Allergies"
+      = f.label "Emergency Contact: "
+      .field = f.text_field :emergency_contact, placeholder: "Emergency Contact"
+      = f.label "Team Name: "
+      .field = f.select :team_id, @teams.collect { |t| [t.name, t.id]}, :include_blank => true
+      .field
+        input.ui.button.large.fluid.blue[type="submit" value="Update Student"]
+
