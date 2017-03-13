@@ -2,12 +2,11 @@
 
 Team Members:
 * Aaron Jacobson
-* Angie Gonzalez
+* Angelica Gonzalez
 * Megan Eding
 * Vivi Nguyen
-* Mo David
+* Mobolaji David
 
-User Stories:
-* asdf
-* asdf
-* asdf
+
+
+
